@@ -115,14 +115,15 @@ module.exports = function (grunt)
                 deferred.resolve();
             }
             else {
-                var success = shell.exec(cmd, {silent: true}).code === 0;
+                var success = shell.exec(cmd, {silent: false});
 
-                if (success) {
-                    grunt.log.ok(msg || cmd);
+                if (success.code === 0) {
+                    grunt.log.ok(msg || cmd,success);
                     deferred.resolve();
                 }
                 else {
                     // fail and stop execution of further tasks
+                    grunt.log.error(cmd,' failed caused by: ',success.code,':',success.output);
                     deferred.reject('Failed when executing: `' + cmd + '`\n');
                 }
             }
