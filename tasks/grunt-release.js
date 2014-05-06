@@ -118,12 +118,12 @@ module.exports = function (grunt)
                 var success = shell.exec(cmd, {silent: false});
 
                 if (success.code === 0) {
-                    grunt.log.ok(msg || cmd,success);
+                    grunt.log.ok(msg || cmd,success.output.split('\n'));
                     deferred.resolve();
                 }
                 else {
                     // fail and stop execution of further tasks
-                    grunt.log.error(cmd,' failed caused by: ',success.code,':',success.output);
+                    grunt.log.error(cmd,' failed caused by: ',success.code,':',success.output.split('\n'));
                     deferred.reject('Failed when executing: `' + cmd + '`\n');
                 }
             }

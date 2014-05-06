@@ -16,8 +16,8 @@ module.exports = function(grunt) {
         tag: true,
         push: true,
         pushTags: true,
-        npm: true,
-        npmtag: false,
+        //npm: true,
+        //npmtag: false,
         github: {
           repo: 'geddski/grunt-release',
           usernameVar: 'GITHUB_USERNAME',
