@@ -118,7 +118,7 @@ module.exports = function (grunt)
                 var success = shell.exec(cmd, {silent: false});
 
                 if (success.code === 0) {
-                    grunt.log.ok(msg || cmd,success.output.split('\n'));
+                    grunt.log.ok(msg || cmd);
                     deferred.resolve();
                 }
                 else {
