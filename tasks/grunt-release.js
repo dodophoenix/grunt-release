@@ -33,7 +33,7 @@ module.exports = function(grunt){
       }
     };
     var tagName = grunt.template.process(grunt.config.getRaw(this.name+'.options.tagName') || '<%= version %>', templateOptions);
-    var commitMessage = grunt.template.process(grunt.config.getRaw(this.name.'options.commitMessage') || 'release <%= version %>', templateOptions);
+    var commitMessage = grunt.template.process(grunt.config.getRaw(this.name+'options.commitMessage') || 'release <%= version %>', templateOptions);
     var tagMessage = grunt.template.process(grunt.config.getRaw(this.name+'release.options.tagMessage') || 'version <%= version %>', templateOptions);
     var nowrite = grunt.option('no-write');
     var task = this;
