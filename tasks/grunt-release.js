@@ -32,9 +32,9 @@ module.exports = function(grunt){
         version: config.newVersion
       }
     };
-    var tagName = grunt.template.process(grunt.config.getRaw('release.options.tagName') || '<%= version %>', templateOptions);
-    var commitMessage = grunt.template.process(grunt.config.getRaw('release.options.commitMessage') || 'release <%= version %>', templateOptions);
-    var tagMessage = grunt.template.process(grunt.config.getRaw('release.options.tagMessage') || 'version <%= version %>', templateOptions);
+    var tagName = grunt.template.process(grunt.config.getRaw(this.name+'.options.tagName') || '<%= version %>', templateOptions);
+    var commitMessage = grunt.template.process(grunt.config.getRaw(this.name.'options.commitMessage') || 'release <%= version %>', templateOptions);
+    var tagMessage = grunt.template.process(grunt.config.getRaw(this.name+'release.options.tagMessage') || 'version <%= version %>', templateOptions);
     var nowrite = grunt.option('no-write');
     var task = this;
     var done = this.async();
